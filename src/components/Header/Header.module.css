@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  padding: 28px 0;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  left: 0;
+}
+.pages {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
