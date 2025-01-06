@@ -84,14 +84,3 @@ button {
 button:hover {
   background-color: var(--button-hover);
 }
-
-/* @media only screen and (min-width: 1440px) {
-  body {
-    padding: 0 108px;
-    /*   display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-  }
-}
