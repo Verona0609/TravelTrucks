@@ -1,0 +1,17 @@
+.background {
+  position: relative;
+  background-size: cover;
+  /*  height: 696px; */
+  height: 860px;
+  background-image: url('../../../img/Picture-min.png');
+  color: var(--inputs);
+  box-sizing: border-box;
+  padding-left: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text {
+  padding: 12px 0 40px 0;
+}

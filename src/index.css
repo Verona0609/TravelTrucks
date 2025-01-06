@@ -13,17 +13,18 @@
   --badges: #f2f4f7;
   --gray: #6c717b;
   --gray-light: #dadde1;
-  --button: #e44848;
-  --button-hover: #d84343;
+  --button: #e98324;
+  --button-hover: #fa9703;
   --rating: #ffc531;
 }
 
 body {
-  padding: 0 64px;
+  padding: 0 24px;
   margin: 0;
   box-sizing: border-box;
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
+  margin: 0 auto;
 }
 
 h1,
@@ -61,9 +62,36 @@ img {
 }
 button {
   margin: 0;
-  padding: 0;
   cursor: pointer;
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
   background-color: var(--button);
+  color: var(--inputs);
+  border-radius: 200px;
+  padding: 16px 60px;
+  border: none;
+  height: 56px;
+  width: 190px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  text-align: center;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+/* @media only screen and (min-width: 1440px) {
+  body {
+    padding: 0 108px;
+    /*   display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
 }
