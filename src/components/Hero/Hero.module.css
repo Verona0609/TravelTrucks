@@ -1,8 +1,8 @@
 .background {
   position: relative;
   background-size: cover;
-  /*  height: 696px; */
-  height: 860px;
+  min-height: 696px;
+  height: 100vh;
   background-image: url('../../../img/Picture-min.png');
   color: var(--inputs);
   box-sizing: border-box;

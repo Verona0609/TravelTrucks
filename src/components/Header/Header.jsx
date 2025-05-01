@@ -3,17 +3,17 @@ import css from './Header.module.css';
 
 const Header = () => {
   return (
-    <div className={css.container}>
+    <header className={css.container}>
       <h3 className={css.title}>TravelTrucks</h3>
       <div className={css.pages}>
-        <p className={css.home}>
-          <Link to="/home">Home</Link>
-        </p>
-        <p className={css.catalog}>
+        <nav className={css.page}>
+          <Link to="/">Home</Link>
+        </nav>
+        <nav className={css.page}>
           <Link to="/catalog">Catalog</Link>
-        </p>
+        </nav>
       </div>
-    </div>
+    </header>
   );
 };
 

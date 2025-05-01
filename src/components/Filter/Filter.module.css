@@ -1,0 +1,58 @@
+.filter {
+  padding: 48px 64px 0 0;
+}
+
+.location {
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--gray);
+  margin-bottom: 32px;
+}
+
+.input {
+  border-radius: 12px;
+  padding-left: 18px;
+  line-height: 56px;
+  width: 360px;
+  height: 56px;
+  background: var(--inputs);
+  border: none;
+  margin-top: 8px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+  margin-bottom: 40px;
+}
+.name {
+  margin-bottom: 48px;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 360px;
+  margin-bottom: 32px;
+}
+.item {
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: 16px 40px;
+  width: 112px;
+  height: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+.item:hover {
+  cursor: pointer;
+  border: 1px solid var(--button-hover);
+}

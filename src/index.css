@@ -13,18 +13,25 @@
   --badges: #f2f4f7;
   --gray: #6c717b;
   --gray-light: #dadde1;
-  --button: #e98324;
-  --button-hover: #fa9703;
+  --button: #f77722;
+  --button-hover: #fa8f03;
   --rating: #ffc531;
 }
 
 body {
-  padding: 0 24px;
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
+  height: 100%;
   margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
 }
 
 h1,
@@ -79,8 +86,10 @@ button {
   letter-spacing: -0.01em;
   color: var(--white);
   text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 button:hover {
+  transform: scale(1.1);
   background-color: var(--button-hover);
 }
