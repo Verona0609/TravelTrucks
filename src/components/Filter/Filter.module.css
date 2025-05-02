@@ -3,6 +3,12 @@
 }
 
 .location {
+  color: var(--gray);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: 10px;
 }
 
 .title {
@@ -14,7 +20,7 @@
   margin-bottom: 32px;
 }
 
-.input {
+.inputloc {
   border-radius: 12px;
   padding-left: 18px;
   line-height: 56px;
@@ -22,7 +28,6 @@
   height: 56px;
   background: var(--inputs);
   border: none;
-  margin-top: 8px;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
@@ -30,11 +35,18 @@
   color: var(--main);
   margin-bottom: 40px;
 }
+.iconloc {
+  display: inline-block;
+  color: black;
+  stroke: none;
+  fill: currentColor;
+}
 .name {
   margin-bottom: 48px;
 }
 .list {
   display: flex;
+
   flex-wrap: wrap;
   gap: 12px;
   max-width: 360px;
@@ -47,6 +59,7 @@
   width: 112px;
   height: 96px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -55,4 +68,11 @@
 .item:hover {
   cursor: pointer;
   border: 1px solid var(--button-hover);
+}
+.icon {
+  display: inline-block;
+  color: black;
+  stroke: none;
+  fill: currentColor;
+  margin-bottom: 8px;
 }
