@@ -3,15 +3,12 @@ import css from './Filter.module.css';
 const Filter = () => {
   return (
     <div className={css.filter}>
-      <div>
-        <p className={css.location}>Location</p>
-        <Icon className={css.iconloc} id="icon-Map" size={32} />
-        <input
-          className={css.inputloc}
-          type="text"
-          placeholder="Kyiv, Ukraine"
-        />
+      <p className={css.location}>Location</p>
+      <div className={css.inputContainer}>
+        <Icon className={css.iconloc} id="icon-Map" size={20} />
+        <input className={css.inputloc} type="text" placeholder="City" />
       </div>
+
       <p className={css.title}>Filters</p>
       <div>
         <h3 className={css.name}>Vehicle equipment</h3>

@@ -20,9 +20,14 @@
   margin-bottom: 32px;
 }
 
+.inputContainer {
+  position: relative;
+  height: 56px;
+  margin-bottom: 40px;
+}
 .inputloc {
   border-radius: 12px;
-  padding-left: 18px;
+  padding-left: 48px;
   line-height: 56px;
   width: 360px;
   height: 56px;
@@ -31,16 +36,20 @@
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
   color: var(--main);
   margin-bottom: 40px;
 }
 .iconloc {
-  display: inline-block;
-  color: black;
+  color: var(--gray);
   stroke: none;
   fill: currentColor;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
+
 .name {
   margin-bottom: 48px;
 }
