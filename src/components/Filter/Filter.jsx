@@ -52,7 +52,7 @@ const Filter = () => {
           </li>
         </ul>
       </div>
-      <button type="submit">Search</button>
+      <button type="submit" className={css.btn}>Search</button>
     </div>
   );
 };

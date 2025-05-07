@@ -1,0 +1,12 @@
+.iconheart {
+  display: inline-block;
+  color: black;
+  stroke: none;
+  fill: red; /* Дозволяє іконці успадковувати колір від батьківського елемента */
+}
+.iconstar {
+  display: inline-block;
+  color: black;
+  stroke: none;
+  fill: currentColor;
+}

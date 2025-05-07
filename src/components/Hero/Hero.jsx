@@ -9,7 +9,7 @@ const Hero = () => {
         You can find everything you want in our catalog
       </p>{' '}
       <Link to="/catalog">
-        <button className={css.button}>View Now</button>
+        <button className={css.btn}>View Now</button>
       </Link>
     </div>
   );
