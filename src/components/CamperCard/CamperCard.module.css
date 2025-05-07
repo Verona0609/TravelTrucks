@@ -1,3 +1,17 @@
+.card {
+  display: flex;
+  width: 680px;
+  height: 368;
+  border: 1px solid var(--gray-light);
+  border-radius: 20px;
+  padding: 24px;
+}
+.image {
+  border-radius: 10px;
+  width: 292px;
+  height: 320px;
+}
+
 .iconheart {
   display: inline-block;
   color: black;

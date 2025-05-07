@@ -6,7 +6,7 @@ const CatalogPage = () => {
   return (
     <>
       <Header />
-      <div className="container" style={{ display: 'flex', gap: '24px' }}>
+      <div className="container" style={{ display: 'flex' }}>
         <Filter />
         <CamperList />
       </div>
