@@ -1,18 +1,28 @@
-.container {
+.header {
+  width: 100%;
+  background-color: #f0dfb6;
+  border: 1px solid rgba(248, 246, 246, 0.863);
+}
+.fullWidth {
   display: flex;
-  padding: 28px 0;
   align-items: center;
   justify-content: flex-start;
-  position: relative;
-  border: 1px solid rgba(248, 246, 246, 0.863);
-  background-color: #f0dfb6;
+  padding: 28px 64px;
+  width: 100%;
+}
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 28px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .title {
-  position: absolute;
-  left: 64px;
+  font-size: 24px;
+  font-weight: bold;
 }
-
 .pages {
   display: flex;
   gap: 32px;

@@ -1,11 +1,24 @@
+.camperList {
+  gap: 50px;
+}
 .card {
   display: flex;
   /*   width: 680px; */
-  width: 888px;
+  max-width: 888px;
   height: 368;
   border: 1px solid var(--gray-light);
   border-radius: 20px;
   padding: 24px;
+  margin-bottom: 32px;
+}
+.about {
+  margin-left: 24px;
+}
+.header {
+  display: flex;
+}
+.priceBox {
+  display: flex;
 }
 .image {
   border-radius: 10px;
