@@ -7,7 +7,9 @@ const Header = () => {
   return (
     <header className={css.header}>
       <div className={isHome ? css.fullWidth : css.container}>
-        <h3 className={css.title}>TravelTrucks</h3>
+        <div className={css.left}>
+          <h3 className={css.title}>TravelTrucks</h3>
+        </div>
         <div className={css.pages}>
           <nav className={css.page}>
             <Link to="/">Home</Link>
@@ -16,6 +18,7 @@ const Header = () => {
             <Link to="/catalog">Catalog</Link>
           </nav>
         </div>
+        <div className={css.right}></div>
       </div>
     </header>
   );

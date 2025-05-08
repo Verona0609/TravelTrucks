@@ -23,13 +23,21 @@
   font-size: 24px;
   font-weight: bold;
 }
+
+.left {
+  flex: 1;
+}
 .pages {
   display: flex;
   gap: 32px;
   align-items: center;
   justify-content: center;
-  flex-grow: 1;
+  /* flex-grow: 1; */
+  flex: 1;
 }
 .page:hover {
   color: var(--button-hover);
+}
+.right {
+  flex: 1;
 }
