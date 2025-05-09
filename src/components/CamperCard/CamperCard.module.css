@@ -17,12 +17,13 @@
 .header {
   display: flex;
   justify-content: space-between;
+  margin-top: 4px;
   /* align-items: center; */
 }
 .title {
   font-family: var(--font-family);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 133%;
   color: var(--main);
   margin-bottom: 8px;
@@ -30,13 +31,13 @@
 .price {
   font-family: var(--font-family);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 133%;
   color: var(--main);
 }
 .priceBox {
   display: flex;
-  align-items: center;
+  /*  align-items: center; */
   gap: 6px;
 }
 .image {
@@ -44,10 +45,19 @@
   width: 292px;
   height: 320px;
 }
+.favoriteBtn {
+  height: 22px;
+}
+.favoriteBtn:hover .iconheart {
+  fill: red;
+}
+.favoriteBtn:active .iconheart {
+  fill: rgb(142, 6, 6);
+}
 
 .iconheart {
   display: inline-block;
-  color: black;
+
   stroke: none;
   fill: red; /* Дозволяє іконці успадковувати колір від батьківського елемента */
 }
@@ -67,7 +77,7 @@
 .ratingText {
   font-family: var(--font-family);
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 150%;
   color: var(--main);
   margin-right: 6px;
@@ -75,7 +85,7 @@
 .location {
   font-family: var(--font-family);
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 150%;
   color: var(--main);
 }
