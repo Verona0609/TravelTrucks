@@ -17,9 +17,9 @@ const CamperCard = ({ camper }) => {
           <div className={css.header}>
             <h2 className={css.title}>{camper.name}</h2>
             <div className={css.priceBox}>
-              <p className={css.price}>{camper.price}</p>
+              <p className={css.price}>${camper.price}.00</p>
               <button className={css.favoriteBtn}>
-                <Icon className={css.iconheart} id="icon-heart" size={24} />
+                <Icon className={css.iconheart} id="icon-heart" size={22} />
               </button>
             </div>
           </div>
@@ -30,10 +30,8 @@ const CamperCard = ({ camper }) => {
               {camper.rating} ({camper.reviews?.length || 0} Reviews)
             </p>
 
-            <div>
-              <Icon className={css.iconloc} id="icon-Map" size={20} />
-              <p className={css.location}>{camper.location}</p>
-            </div>
+            <Icon className={css.iconloc} id="icon-Map" size={16} />
+            <p className={css.location}>{camper.location}</p>
           </div>
           <p className={css.description}>{camper.description}</p>
           <ul className={css.filterlist}>

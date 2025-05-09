@@ -16,9 +16,28 @@
 }
 .header {
   display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+.title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 133%;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+.price {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 133%;
+  color: var(--main);
 }
 .priceBox {
   display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .image {
   border-radius: 10px;
@@ -32,9 +51,71 @@
   stroke: none;
   fill: red; /* Дозволяє іконці успадковувати колір від батьківського елемента */
 }
+.details {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
 .iconstar {
   display: inline-block;
   color: black;
   stroke: none;
   fill: currentColor;
+}
+.ratingText {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: var(--main);
+  margin-right: 6px;
+}
+.location {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: var(--main);
+}
+.description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 24px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* ← показати тільки 1 рядок */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btn {
+  margin: 0;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  background-color: var(--button);
+  color: var(--inputs);
+  border-radius: 200px;
+  /*  padding: 16px 60px; */
+  border: none;
+  height: 56px;
+  width: 146px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background-color: var(--button-hover);
 }

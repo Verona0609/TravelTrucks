@@ -38,7 +38,7 @@ body {
   max-width: 1440px;
   overflow-x: hidden;
   margin: 0 auto;
-  padding: 48px 64px;
+  padding: 48px 54px;
 }
 
 h1,
@@ -78,4 +78,5 @@ button {
   cursor: pointer;
   border: none;
   background-color: #fff;
+  padding: 0;
 }
