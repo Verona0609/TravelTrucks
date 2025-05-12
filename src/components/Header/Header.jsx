@@ -8,7 +8,10 @@ const Header = () => {
     <header className={css.header}>
       <div className={isHome ? css.fullWidth : css.container}>
         <div className={css.left}>
-          <h3 className={css.title}>TravelTrucks</h3>
+          <nav className={css.title}>
+            {' '}
+            <Link to="/"> TravelTrucks</Link>
+          </nav>
         </div>
         <div className={css.pages}>
           <nav className={css.page}>
