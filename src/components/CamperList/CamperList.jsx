@@ -7,10 +7,9 @@ const CamperList = () => {
 
   useEffect(() => {
     fetch(api)
-      .then(res => res.json()) // Важливо: викликати res.json() правильно
+      .then(res => res.json())
       .then(data => {
-        console.log('Fetched data:', data); // Додати це для перевірки
-        setCampers(data.items); // Використовуємо data.items для масиву кемперів
+        setCampers(data.items);
       })
       .catch(err => console.error('Fetch error:', err));
   }, []);

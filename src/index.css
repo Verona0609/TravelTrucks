@@ -77,6 +77,6 @@ img {
 button {
   cursor: pointer;
   border: none;
-  background-color: #fff;
+  background-color: transparent;
   padding: 0;
 }
