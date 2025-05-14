@@ -1,20 +1,46 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from '../Icon/Icon';
 import css from './Filter.module.css';
+import {
+  setLocation,
+  setVehicleType,
+  toggleOption,
+} from '../../slices/filterSlice';
 const Filter = () => {
   const dispatch = useDispatch();
+  const filters = useSelector(state => state.filters);
+
+  // Обробка зміни в полі "Location"
+  const handleLocationChange = e => {
+    dispatch(setLocation(e.target.value));
+  };
+  // Обробка натискання на тип транспортного засобу
+  const handleVerichleClick = type => {
+    dispatch(setVehicleType(type));
+  };
+  // Обробка натискання на опції (AC, TV, Kitchen тощо)
+  const handleOptionClick = option => {
+    dispatch(toggleOption(option));
+  };
   return (
     <div className={css.filter}>
       <p className={css.location}>Location</p>
       <div className={css.inputContainer}>
         <Icon className={css.iconloc} id="icon-Map" size={20} />
-        <input className={css.inputloc} type="text" placeholder="City" />
+        <input
+          className={css.inputloc}
+          type="text"
+          placeholder="City"
+          value={filters.location}
+          onChange={handleLocationChange}
+        />
       </div>
 
       <p className={css.title}>Filters</p>
       <div>
         <h3 className={css.name}>Vehicle equipment</h3>
         <ul className={css.list}>
+          {/*  {['AC', 'Automatic', 'Kitchen', 'TV', 'Bathroom'].map(option =>())} */}
           <li className={css.item}>
             <Icon className={css.icon} id="icon-wind" size={32} />
             <p>AC</p>
