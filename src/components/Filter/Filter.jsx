@@ -1,6 +1,8 @@
+import { useDispatch } from 'react-redux';
 import { Icon } from '../Icon/Icon';
 import css from './Filter.module.css';
 const Filter = () => {
+  const dispatch = useDispatch();
   return (
     <div className={css.filter}>
       <p className={css.location}>Location</p>
@@ -52,7 +54,9 @@ const Filter = () => {
           </li>
         </ul>
       </div>
-      <button type="submit" className={css.btn}>Search</button>
+      <button type="submit" className={css.btn}>
+        Search
+      </button>
     </div>
   );
 };
