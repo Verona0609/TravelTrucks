@@ -1,26 +1,43 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import CamperCard from '../CamperCard/CamperCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCampers } from '../../slices/camperSlice';
 
 const CamperList = () => {
-  const [campers, setCampers] = useState([]);
-  const api = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers';
+  const dispatch = useDispatch();
+  const campers = useSelector(state => state.campers.items);
+  const loading = useSelector(state => state.campers.loading);
+  const error = useSelector(state => state.campers.error);
+  const filters = useSelector(state => state.filters);
 
+  //Завантаження даних при монтуванні
   useEffect(() => {
-    fetch(api)
-      .then(res => res.json())
-      .then(data => {
-        setCampers(data.items);
-      })
-      .catch(err => console.error('Fetch error:', err));
-  }, []);
+    dispatch(fetchCampers());
+  }, [dispatch]);
 
-  if (!campers || campers.length === 0) {
-    return <div>Loading...</div>; // Якщо немає кемперів, показуємо повідомлення
-  }
+  const filteredCampers = campers.filter(camper => {
+    const matchesLocation =
+      !filters.location ||
+      camper.location.toLowerCase().includes(filters.location.toLowerCase());
+
+    const matchesType =
+      !filters.vehicleType ||
+      camper.form?.toLowerCase() === filters.vehicleType.toLowerCase();
+
+    const matchesOption =
+      filters.options.length === 0 ||
+      filters.options.every(opt => camper[opt.toLowerCase()]);
+
+    return matchesLocation && matchesType && matchesOption;
+  });
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (filteredCampers.length === 0) return <div>No campers found.</div>;
 
   return (
     <div>
-      {campers.map(camper => (
+      {filteredCampers.map(camper => (
         <CamperCard key={camper.id} camper={camper} />
       ))}
     </div>

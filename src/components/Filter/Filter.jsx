@@ -9,21 +9,38 @@ import {
 const Filter = () => {
   const dispatch = useDispatch();
   const filters = useSelector(state => state.filters);
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('Фільтр для пощуку:', filters);
+  };
 
   // Обробка зміни в полі "Location"
   const handleLocationChange = e => {
     dispatch(setLocation(e.target.value));
   };
   // Обробка натискання на тип транспортного засобу
-  const handleVerichleClick = type => {
+  const handleVericleClick = type => {
     dispatch(setVehicleType(type));
   };
   // Обробка натискання на опції (AC, TV, Kitchen тощо)
   const handleOptionClick = option => {
     dispatch(toggleOption(option));
   };
+
+  const vehicleOption = [
+    { name: 'AC', iconId: 'icon-wind' },
+    { name: 'Automatic', iconId: 'icon-diagram' },
+    { name: 'Kitchen', iconId: 'icon-cup-hot' },
+    { name: 'TV', iconId: 'icon-tv' },
+    { name: 'Bathroom', iconId: 'icon-ph_shower' },
+  ];
+  const vehicleType = [
+    { name: 'Van', iconId: 'icon-bi_grid-1x2' },
+    { name: 'Fully Integrated', iconId: 'icon-bi_grid' },
+    { name: 'Alcove', iconId: 'icon-bi_grid-3x3-gap' },
+  ];
   return (
-    <div className={css.filter}>
+    <form className={css.filter} onSubmit={handleSubmit}>
       <p className={css.location}>Location</p>
       <div className={css.inputContainer}>
         <Icon className={css.iconloc} id="icon-Map" size={20} />
@@ -40,12 +57,18 @@ const Filter = () => {
       <div>
         <h3 className={css.name}>Vehicle equipment</h3>
         <ul className={css.list}>
-          {/*  {['AC', 'Automatic', 'Kitchen', 'TV', 'Bathroom'].map(option =>())} */}
-          <li className={css.item}>
-            <Icon className={css.icon} id="icon-wind" size={32} />
-            <p>AC</p>
-          </li>
-          <li className={css.item}>
+          {vehicleOption.map(option => (
+            <li
+              key={option.name}
+              className={css.item}
+              onClick={() => handleOptionClick(option.name)}
+            >
+              <Icon className={css.icon} id={option.iconId} size={32} />
+              <p>{option.name}</p>
+            </li>
+          ))}
+
+          {/*   <li className={css.item}>
             <Icon className={css.icon} id="icon-diagram" size={32} />
             <p>Automatic</p>
           </li>
@@ -60,13 +83,23 @@ const Filter = () => {
           <li className={css.item}>
             <Icon className={css.icon} id="icon-ph_shower" size={32} />
             <p>Bathroom</p>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div>
         <h3 className={css.name}>Vehicle type</h3>
         <ul className={css.list}>
-          <li className={css.item}>
+          {vehicleType.map(({ name, iconId }) => (
+            <li
+              key={name}
+              className={css.item}
+              onClick={() => handleVericleClick(name)}
+            >
+              <Icon className={css.icon} id={iconId} size={32} />
+              <p>{name}</p>
+            </li>
+          ))}
+          {/* <li className={css.item}>
             <Icon className={css.icon} id="icon-bi_grid-1x2" size={32} />
             <p>Van</p>
           </li>
@@ -77,13 +110,13 @@ const Filter = () => {
           <li className={css.item}>
             <Icon className={css.icon} id="icon-bi_grid-3x3-gap" size={32} />
             <p>Alcove</p>
-          </li>
+          </li> */}
         </ul>
       </div>
       <button type="submit" className={css.btn}>
         Search
       </button>
-    </div>
+    </form>
   );
 };
 
