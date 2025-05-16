@@ -103,7 +103,27 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
+.filterlist {
+  display: flex;
+  flex-wrap: wrap; /* дозволяє переносити на новий рядок */
+  gap: 8px 12px;
+  margin-bottom: 24px;
+  max-height: calc(44px * 2 + 8px); /* обмеження на 2 рядки */
+  overflow: hidden;
+}
+.filterItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  padding: 12px 18px;
+  font-size: 16px;
+  height: 44px;
+  gap: 8px;
+  background: var(--badges);
+}
+.iconId {
+}
 .btn {
   margin: 0;
   font-weight: var(--font-weight-regular);

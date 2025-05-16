@@ -10,6 +10,13 @@ const CamperList = () => {
   const error = useSelector(state => state.campers.error);
   const filters = useSelector(state => state.filters);
 
+  const optionKeyMap = {
+    AC: 'ac',
+    TV: 'tv',
+    Kitchen: 'kitchen',
+    Bathroom: 'bathroom',
+    Automatic: 'automatic',
+  };
   //Завантаження даних при монтуванні
   useEffect(() => {
     dispatch(fetchCampers());
@@ -26,7 +33,7 @@ const CamperList = () => {
 
     const matchesOption =
       filters.options.length === 0 ||
-      filters.options.every(opt => camper[opt.toLowerCase()]);
+      filters.options.every(opt => camper[optionKeyMap[opt].toLowerCase()]);
 
     return matchesLocation && matchesType && matchesOption;
   });

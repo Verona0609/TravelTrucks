@@ -27,10 +27,16 @@ const CamperCard = ({ camper }) => {
   // 🔧 Збираємо фільтри з булевих значень
   const optionsMap = {
     AC: 'icon-wind',
-    Automatic: 'icon-diagram',
-    Kitchen: 'icon-cup-hot',
+    automatic: 'icon-diagram',
+    kitchen: 'icon-cup-hot',
     TV: 'icon-tv',
-    Bathroom: 'icon-ph_shower',
+    bathroom: 'icon-ph_shower',
+    petrol: 'icon-fuel-pump',
+    radio: 'icon-radios',
+    refrigerator: 'icon-fridge',
+    microwave: 'icon-microwave',
+    gas: 'icon-gas-stove',
+    water: 'icon-water',
   };
   const activeFilters = Object.entries(optionsMap)
     .filter(([key]) => camper[key])
