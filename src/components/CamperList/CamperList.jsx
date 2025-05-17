@@ -17,7 +17,7 @@ const CamperList = () => {
     Bathroom: 'bathroom',
     Automatic: 'automatic',
   };
-  //Завантаження даних при монтуванні
+
   useEffect(() => {
     dispatch(fetchCampers());
   }, [dispatch]);

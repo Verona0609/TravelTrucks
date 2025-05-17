@@ -14,7 +14,6 @@ const Filter = () => {
     console.log('Фільтр для пощуку:', filters);
   };
 
-  // Обробка зміни в полі "Location"
   const handleLocationChange = e => {
     dispatch(setLocation(e.target.value));
   };
