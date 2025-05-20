@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Icon } from '../Icon/Icon';
 import css from './CamperCard.module.css';
 
@@ -89,8 +90,9 @@ const CamperCard = ({ camper }) => {
               ))}
             </ul>
           )}
-
-          <button className={css.btn}>Show more</button>
+          <Link to="/catalog/:id">
+            <button className={css.btn}>Show more</button>
+          </Link>
         </div>
       </div>
     </div>
