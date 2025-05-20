@@ -18,7 +18,9 @@ export const fetchCampers = createAsyncThunk(
 
       // Додаткові опції (наприклад: AC, kitchen, etc.)
       filters.options?.forEach(option => {
-        const key = option.charAt(0).toLowerCase() + option.slice(0);
+        if (option === 'transmission') {
+          params.append('transmission', 'automatic');
+        }
         params.append(option, true);
       });
 

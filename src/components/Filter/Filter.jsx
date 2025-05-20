@@ -32,11 +32,17 @@ const Filter = () => {
   };
 
   const vehicleOption = [
-    { name: 'AC', iconId: 'icon-wind' },
-    { name: 'Automatic', iconId: 'icon-diagram' },
-    { name: 'Kitchen', iconId: 'icon-cup-hot' },
-    { name: 'TV', iconId: 'icon-tv' },
-    { name: 'Bathroom', iconId: 'icon-ph_shower' },
+    { name: 'AC', apiValue: 'AC', iconId: 'icon-wind' },
+
+    {
+      name: 'Automatic',
+
+      apiValue: 'transmission',
+      iconId: 'icon-diagram',
+    },
+    { name: 'Kitchen', apiValue: 'kitchen', iconId: 'icon-cup-hot' },
+    { name: 'TV', apiValue: 'TV', iconId: 'icon-tv' },
+    { name: 'Bathroom', apiValue: 'bathroom', iconId: 'icon-ph_shower' },
   ];
   const vehicleType = [
     { name: 'Van', apiValue: 'panelTruck', iconId: 'icon-bi_grid-1x2' },
@@ -70,7 +76,7 @@ const Filter = () => {
             <li
               key={option.name}
               className={css.item}
-              onClick={() => handleOptionClick(option.name)}
+              onClick={() => handleOptionClick(option.apiValue)}
             >
               <Icon className={css.icon} id={option.iconId} size={32} />
               <p>{option.name}</p>
