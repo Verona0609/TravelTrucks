@@ -10,41 +10,17 @@ const CamperList = () => {
   const error = useSelector(state => state.campers.error);
   const filters = useSelector(state => state.filters);
 
-  const optionKeyMap = {
-    AC: 'ac',
-    TV: 'tv',
-    Kitchen: 'kitchen',
-    Bathroom: 'bathroom',
-    Automatic: 'automatic',
-  };
-
   useEffect(() => {
-    dispatch(fetchCampers());
-  }, [dispatch]);
+    dispatch(fetchCampers(filters)); // передаємо фільтри в API
+  }, [dispatch, filters]); // при зміні filters — новий fetch
 
-  const filteredCampers = campers.filter(camper => {
-    const matchesLocation =
-      !filters.location ||
-      camper.location.toLowerCase().includes(filters.location.toLowerCase());
-
-    const matchesType =
-      !filters.vehicleType ||
-      camper.form?.toLowerCase() === filters.vehicleType.toLowerCase();
-
-    const matchesOption =
-      filters.options.length === 0 ||
-      filters.options.every(opt => camper[optionKeyMap[opt].toLowerCase()]);
-
-    return matchesLocation && matchesType && matchesOption;
-  });
-
-  if (loading) return <div>Loading...</div>;
+  if (loading || !Array.isArray(campers)) return <div>Loading campers...</div>;
   if (error) return <div>Error: {error}</div>;
-  if (filteredCampers.length === 0) return <div>No campers found.</div>;
+  if (campers.length === 0) return <div>No campers found.</div>;
 
   return (
     <div>
-      {filteredCampers.map(camper => (
+      {campers.map(camper => (
         <CamperCard key={camper.id} camper={camper} />
       ))}
     </div>

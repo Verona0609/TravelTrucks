@@ -6,17 +6,22 @@ import {
   setVehicleType,
   toggleOption,
 } from '../../slices/filterSlice';
+import { fetchCampers, resetCampers } from '../../slices/camperSlice';
 const Filter = () => {
   const dispatch = useDispatch();
+
   const filters = useSelector(state => state.filters);
+
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Фільтр для пощуку:', filters);
+    dispatch(resetCampers());
+    dispatch(fetchCampers(filters));
   };
 
   const handleLocationChange = e => {
     dispatch(setLocation(e.target.value));
   };
+
   // Обробка натискання на тип транспортного засобу
   const handleVericleClick = type => {
     dispatch(setVehicleType(type));
@@ -34,13 +39,18 @@ const Filter = () => {
     { name: 'Bathroom', iconId: 'icon-ph_shower' },
   ];
   const vehicleType = [
-    { name: 'Van', iconId: 'icon-bi_grid-1x2' },
-    { name: 'Fully Integrated', iconId: 'icon-bi_grid' },
-    { name: 'Alcove', iconId: 'icon-bi_grid-3x3-gap' },
+    { name: 'Van', apiValue: 'panelTruck', iconId: 'icon-bi_grid-1x2' },
+    {
+      name: 'Fully Integrated',
+      apiValue: 'integrated',
+      iconId: 'icon-bi_grid',
+    },
+    { name: 'Alcove', apiValue: 'alcove', iconId: 'icon-bi_grid-3x3-gap' },
   ];
   return (
     <form className={css.filter} onSubmit={handleSubmit}>
       <p className={css.location}>Location</p>
+      {/* location */}
       <div className={css.inputContainer}>
         <Icon className={css.iconloc} id="icon-Map" size={20} />
         <input
@@ -51,7 +61,7 @@ const Filter = () => {
           onChange={handleLocationChange}
         />
       </div>
-
+      {/* options */}
       <p className={css.title}>Filters</p>
       <div>
         <h3 className={css.name}>Vehicle equipment</h3>
@@ -68,14 +78,15 @@ const Filter = () => {
           ))}
         </ul>
       </div>
+      {/* type */}
       <div>
         <h3 className={css.name}>Vehicle type</h3>
         <ul className={css.list}>
-          {vehicleType.map(({ name, iconId }) => (
+          {vehicleType.map(({ name, apiValue, iconId }) => (
             <li
               key={name}
               className={css.item}
-              onClick={() => handleVericleClick(name)}
+              onClick={() => handleVericleClick(apiValue)}
             >
               <Icon className={css.icon} id={iconId} size={32} />
               <p>{name}</p>
@@ -83,6 +94,7 @@ const Filter = () => {
           ))}
         </ul>
       </div>
+
       <button type="submit" className={css.btn}>
         Search
       </button>
