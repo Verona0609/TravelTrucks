@@ -18,8 +18,8 @@ export const fetchCampers = createAsyncThunk(
 
       // Додаткові опції (наприклад: AC, kitchen, etc.)
       filters.options?.forEach(option => {
-        const key = option.charAt(0).toLowerCase() + option.slice(1);
-        params.append(key, true);
+        const key = option.charAt(0).toLowerCase() + option.slice(0);
+        params.append(option, true);
       });
 
       const api = `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers?${params.toString()}`;
@@ -30,6 +30,7 @@ export const fetchCampers = createAsyncThunk(
       }
 
       const data = await res.json();
+      console.log('Fetched campers:', data);
       return data.items;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
