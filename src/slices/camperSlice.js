@@ -32,7 +32,7 @@ export const fetchCampers = createAsyncThunk(
       }
 
       const data = await res.json();
-      console.log('Fetched campers:', data);
+
       return data.items;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
