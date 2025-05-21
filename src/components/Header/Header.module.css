@@ -37,6 +37,10 @@
 .page:hover {
   color: var(--button-hover);
 }
+
+.page.active {
+  color: var(--button-hover); /* або інший колір для активної сторінки */
+}
 .right {
   flex: 1;
 }

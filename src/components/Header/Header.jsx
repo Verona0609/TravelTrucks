@@ -14,10 +14,18 @@ const Header = () => {
           </nav>
         </div>
         <div className={css.pages}>
-          <nav className={css.page}>
+          <nav
+            className={`${css.page} ${
+              location.pathname === '/' ? css.active : ''
+            }`}
+          >
             <Link to="/">Home</Link>
           </nav>
-          <nav className={css.page}>
+          <nav
+            className={`${css.page} ${
+              location.pathname === '/catalog' ? css.active : ''
+            }`}
+          >
             <Link to="/catalog">Catalog</Link>
           </nav>
         </div>
