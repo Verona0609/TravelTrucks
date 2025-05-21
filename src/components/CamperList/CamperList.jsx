@@ -11,8 +11,8 @@ const CamperList = () => {
   const filters = useSelector(state => state.filters);
 
   useEffect(() => {
-    dispatch(fetchCampers(filters)); // передаємо фільтри в API
-  }, [dispatch, filters]); // при зміні filters — новий fetch
+    dispatch(fetchCampers({ page: 1, limit: 4 }));
+  }, []);
 
   if (loading || !Array.isArray(campers)) return <div>Loading campers...</div>;
   if (error) return <div>Error: {error}</div>;

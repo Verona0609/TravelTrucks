@@ -58,7 +58,11 @@ const Filter = () => {
       <p className={css.location}>Location</p>
       {/* location */}
       <div className={css.inputContainer}>
-        <Icon className={css.iconloc} id="icon-Map" size={20} />
+        <Icon
+          className={`${css.iconloc} ${filters.location ? css.iconActive : ''}`}
+          id="icon-Map"
+          size={20}
+        />
         <input
           className={css.inputloc}
           type="text"
@@ -72,32 +76,39 @@ const Filter = () => {
       <div>
         <h3 className={css.name}>Vehicle equipment</h3>
         <ul className={css.list}>
-          {vehicleOption.map(option => (
-            <li
-              key={option.name}
-              className={css.item}
-              onClick={() => handleOptionClick(option.apiValue)}
-            >
-              <Icon className={css.icon} id={option.iconId} size={32} />
-              <p>{option.name}</p>
-            </li>
-          ))}
+          {vehicleOption.map(option => {
+            const isActive = filters.options.includes(option.apiValue);
+
+            return (
+              <li
+                key={option.name}
+                className={`${css.item} ${isActive ? css.itemActive : ''}`}
+                onClick={() => handleOptionClick(option.apiValue)}
+              >
+                <Icon className={css.icon} id={option.iconId} size={32} />
+                <p>{option.name}</p>
+              </li>
+            );
+          })}
         </ul>
       </div>
       {/* type */}
       <div>
         <h3 className={css.name}>Vehicle type</h3>
         <ul className={css.list}>
-          {vehicleType.map(({ name, apiValue, iconId }) => (
-            <li
-              key={name}
-              className={css.item}
-              onClick={() => handleVericleClick(apiValue)}
-            >
-              <Icon className={css.icon} id={iconId} size={32} />
-              <p>{name}</p>
-            </li>
-          ))}
+          {vehicleType.map(({ name, apiValue, iconId }) => {
+            const isActive = filters.vehicleType === apiValue;
+            return (
+              <li
+                key={name}
+                className={`${css.item} ${isActive ? css.itemActive : ''}`}
+                onClick={() => handleVericleClick(apiValue)}
+              >
+                <Icon className={css.icon} id={iconId} size={32} />
+                <p>{name}</p>
+              </li>
+            );
+          })}
         </ul>
       </div>
 

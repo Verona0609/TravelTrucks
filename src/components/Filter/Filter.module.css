@@ -34,7 +34,13 @@
   font-size: 16px;
   color: var(--main);
   margin-bottom: 40px;
+  outline: none;
 }
+.inputloc:focus {
+  border: 1px solid tamperate; /* твій кольор */
+  outline: none;
+}
+
 .iconloc {
   color: var(--gray);
   stroke: none;
@@ -44,6 +50,14 @@
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+}
+.inputContainer:focus-within .iconloc,
+.inputContainer.active .iconloc {
+  color: black;
+}
+
+.iconActive {
+  fill: black;
 }
 
 .name {
@@ -72,6 +86,10 @@
 }
 .item:hover {
   cursor: pointer;
+  border: 1px solid var(--button-hover);
+}
+
+.itemActive {
   border: 1px solid var(--button-hover);
 }
 .icon {
