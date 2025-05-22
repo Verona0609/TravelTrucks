@@ -39,7 +39,7 @@
 }
 
 .page.active {
-  color: var(--button); /* або інший колір для активної сторінки */
+  color: var(--button);
 }
 .right {
   flex: 1;
