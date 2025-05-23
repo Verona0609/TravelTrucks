@@ -19,7 +19,7 @@ const CamperList = () => {
     dispatch(resetCampers());
     setPage(1);
     dispatch(fetchCampers({ ...filters, page: 1, limit: ITEMS_PER_PAGE }));
-  }, [dispatch, filters]);
+  }, [dispatch]);
 
   const loadMore = event => {
     event.preventDefault();
