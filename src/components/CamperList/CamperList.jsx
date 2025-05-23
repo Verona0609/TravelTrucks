@@ -13,28 +13,25 @@ const CamperList = () => {
 
   const [page, setPage] = useState(1);
 
+  const ITEMS_PER_PAGE = 3;
+
   useEffect(() => {
     dispatch(resetCampers());
     setPage(1);
-    dispatch(fetchCampers({ ...filters, page: 1, limit: 3 }));
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (page > 1 && !loading) {
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: 'smooth',
-      });
-    }
-  }, [page]);
+    dispatch(fetchCampers({ ...filters, page: 1, limit: ITEMS_PER_PAGE }));
+  }, [dispatch, filters]);
 
   const loadMore = event => {
     event.preventDefault();
     const nextPage = page + 1;
-
     setPage(nextPage);
     dispatch(
-      fetchCampers({ ...filters, page: nextPage, limit: 3, append: true })
+      fetchCampers({
+        ...filters,
+        page: nextPage,
+        limit: ITEMS_PER_PAGE,
+        append: true,
+      })
     );
   };
 
@@ -44,22 +41,25 @@ const CamperList = () => {
 
       {!loading && error && <div>Error: {error}</div>}
 
-      {!loading && campers.length === 0 && <div>No campers found.</div>}
+      {!loading && !error && campers.length === 0 && (
+        <div>No campers found.</div>
+      )}
 
-      {campers.length > 0 &&
-        campers.map(camper => <CamperCard key={camper.id} camper={camper} />)}
+      {campers.length > 0 && (
+        <div>
+          {campers.map(camper => (
+            <CamperCard key={camper.id} camper={camper} />
+          ))}
 
-      {loading && campers.length > 0 && <div>Loading campers...</div>}
+          {loading && <div>Loading campers...</div>}
 
-      {!loading && campers.length > 0 && (
-        <div className={css.wrapper}>
-          <button
-            onClick={loadMore}
-            disabled={loading}
-            className={css.loadMore}
-          >
-            Load More
-          </button>
+          {!loading && campers.length % ITEMS_PER_PAGE === 0 && (
+            <div className={css.wrapper}>
+              <button onClick={loadMore} className={css.loadMore}>
+                Load More
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>
