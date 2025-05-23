@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadMore {
+  border: 1px solid var(--gray-light);
+  border-radius: 200px;
+  padding: 16px 32px;
+  width: 145px;
+  height: 56px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.loadMore:hover {
+  border: 1px solid var(--button-hover);
+  transform: scale(1.1);
+}

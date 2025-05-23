@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchCampers = createAsyncThunk(
   'campers/fetch',
-  async (filters = {}, thunkAPI) => {
+  async ({ append, ...filters } = {}, thunkAPI) => {
     try {
       const params = new URLSearchParams();
 
@@ -23,6 +23,8 @@ export const fetchCampers = createAsyncThunk(
         }
         params.append(option, true);
       });
+      params.append('page', filters.page || 1);
+      params.append('limit', filters.limit || 3);
 
       const api = `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers?${params.toString()}`;
       const res = await fetch(api);
@@ -33,7 +35,7 @@ export const fetchCampers = createAsyncThunk(
 
       const data = await res.json();
 
-      return data.items;
+      return { data: data.items || data, append: append || false };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -62,7 +64,13 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        if (action.payload.append) {
+          // додаємо нові кемпери в кінець списку
+          state.items = [...state.items, ...action.payload.data];
+        } else {
+          // замінюємо список (перший завантаження / скидання)
+          state.items = action.payload.data;
+        }
       })
       .addCase(fetchCampers.rejected, (state, action) => {
         state.loading = false;

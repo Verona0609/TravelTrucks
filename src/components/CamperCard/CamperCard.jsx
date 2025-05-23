@@ -3,9 +3,6 @@ import { Icon } from '../Icon/Icon';
 import css from './CamperCard.module.css';
 
 const CamperCard = ({ camper }) => {
-  /*  if (!camper) return null; */ //
-  // 🔧 Збираємо фільтри з булевих значень
-
   const {
     gallery = [],
     name = '',
