@@ -22,7 +22,6 @@ const CamperCard = ({ camper }) => {
     water,
   } = camper;
 
-  // 🔧 Збираємо фільтри з булевих значень
   const optionsMap = {
     AC: 'icon-wind',
     automatic: 'icon-diagram',
