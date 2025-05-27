@@ -46,17 +46,13 @@ const CamperCard = ({ camper }) => {
     <div className={css.camperList}>
       <div className={css.card}>
         <div className={css.image}>
-          <img
-            src={camper.gallery[0]?.thumb}
-            alt={camper.name}
-            className={css.image}
-          />
+          <img src={gallery[0]?.thumb} alt={name} className={css.image} />
         </div>
         <div className={css.about}>
           <div className={css.header}>
-            <h2 className={css.title}>{camper.name}</h2>
+            <h2 className={css.title}>{name}</h2>
             <div className={css.priceBox}>
-              <p className={css.price}>${camper.price}.00</p>
+              <p className={css.price}>${price}.00</p>
               <button className={css.favoriteBtn}>
                 <Icon className={css.iconheart} id="icon-heart" size={22} />
               </button>
@@ -66,14 +62,14 @@ const CamperCard = ({ camper }) => {
           <div className={css.details}>
             <Icon className={css.iconstar} id="icon-star" size={16} />
             <p className={css.ratingText}>
-              {camper.rating} ({camper.reviews?.length || 0} Reviews)
+              {rating} ({reviews?.length || 0} Reviews)
             </p>
 
             <Icon className={css.iconloc} id="icon-Map" size={16} />
-            <p className={css.location}>{camper.location}</p>
+            <p className={css.location}>{location}</p>
           </div>
 
-          <p className={css.description}>{camper.description}</p>
+          <p className={css.description}>{description}</p>
 
           {/* 💡 Динамічно згенеровані фільтри */}
           {activeFilters.length > 0 && (
@@ -86,7 +82,7 @@ const CamperCard = ({ camper }) => {
               ))}
             </ul>
           )}
-          <Link to="/catalog/:id">
+          <Link to={`/catalog/${camper.id}`}>
             <button className={css.btn}>Show more</button>
           </Link>
         </div>
