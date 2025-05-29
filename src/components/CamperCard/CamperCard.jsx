@@ -71,7 +71,7 @@ const CamperCard = ({ camper }) => {
 
           <p className={css.description}>{description}</p>
 
-          {/* 💡 Динамічно згенеровані фільтри */}
+         
           {activeFilters.length > 0 && (
             <ul className={css.filterlist}>
               {activeFilters.map((filter, index) => (
