@@ -17,12 +17,16 @@ export const fetchCampers = createAsyncThunk(
       }
 
       // Додаткові опції (наприклад: AC, kitchen, etc.)
-      filters.options?.forEach(option => {
-        if (option === 'transmission') {
-          params.append('transmission', 'automatic');
+      Object.entries(filters.options || {}).forEach(([key, value]) => {
+        if (typeof value === 'boolean' && value) {
+          params.append(key, true);
         }
-        params.append(option, true);
+
+        if (key === 'transmission' && typeof value === 'string') {
+          params.append('transmission', value);
+        }
       });
+
       params.append('page', filters.page || 1);
       params.append('limit', filters.limit || 3);
 
