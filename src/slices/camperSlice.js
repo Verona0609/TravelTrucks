@@ -16,7 +16,7 @@ export const fetchCampers = createAsyncThunk(
         params.append('form', filters.vehicleType);
       }
 
-      // Додаткові опції (наприклад: AC, kitchen, etc.)
+      // Додаткові опції (наприклад: AC, kitchen, etc.) //! подивитись логіку
       Object.entries(filters.options || {}).forEach(([key, value]) => {
         if (typeof value === 'boolean' && value) {
           params.append(key, true);
