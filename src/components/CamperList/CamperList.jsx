@@ -44,7 +44,9 @@ const CamperList = () => {
         </div>
       )}
 
-      {!loading && error && <div>Error: {error}</div>}
+      {!loading && error && (
+        <div>No camper found — must be off chasing sunsets🌄</div>
+      )}
 
       {!loading && !error && campers.length === 0 && (
         <div>No campers found.</div>
