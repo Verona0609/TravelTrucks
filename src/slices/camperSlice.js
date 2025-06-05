@@ -39,6 +39,8 @@ export const fetchCampers = createAsyncThunk(
 
       const data = await res.json();
 
+      await new Promise(resolve => setTimeout(resolve, 600));
+
       return { data: data.items || data, append: append || false };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -1,7 +1,9 @@
+import { selectIsLoading } from '../../selectors/selectors';
 import { Icon } from '../Icon/Icon';
 import css from './CatalogId.module.css';
 
 const CatalogId = ({ camper }) => {
+  const isLoading = useSelector(selectIsLoading);
   if (!camper) return null;
   const {
     gallery = [],
@@ -24,6 +26,7 @@ const CatalogId = ({ camper }) => {
 
   return (
     <div className={css.camperList}>
+      {isLoading && <Loader />}
       <div className={css.card}>
         <div className={css.image}>
           <img src={gallery[0]?.original} alt={name} className={css.image} />

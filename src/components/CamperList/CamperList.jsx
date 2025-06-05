@@ -3,6 +3,7 @@ import CamperCard from '../CamperCard/CamperCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCampers, resetCampers } from '../../slices/camperSlice';
 import css from './CamperList.module.css';
+import Loader from '../Loader/Loader';
 
 const CamperList = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,11 @@ const CamperList = () => {
 
   return (
     <div>
-      {loading && campers.length === 0 && <div>Loading campers...</div>}
+      {loading && campers.length === 0 && (
+        <div>
+          <Loader />
+        </div>
+      )}
 
       {!loading && error && <div>Error: {error}</div>}
 
@@ -51,7 +56,11 @@ const CamperList = () => {
             <CamperCard key={camper.id} camper={camper} />
           ))}
 
-          {loading && <div>Loading campers...</div>}
+          {loading && (
+            <div>
+              <Loader />
+            </div>
+          )}
 
           {!loading && campers.length % ITEMS_PER_PAGE === 0 && (
             <div className={css.wrapper}>
