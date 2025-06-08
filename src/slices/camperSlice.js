@@ -19,7 +19,7 @@ export const fetchCampers = createAsyncThunk(
       // Додаткові опції (наприклад: AC, kitchen, etc.) //! подивитись логіку
       Object.entries(filters.options || {}).forEach(([key, value]) => {
         if (typeof value === 'boolean' && value) {
-          params.append(key, true);
+          params.append(key, 'true');
         }
 
         if (key === 'transmission' && typeof value === 'string') {
