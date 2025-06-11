@@ -1,1 +1,55 @@
+.about {
+  margin-left: 24px;
+}
 
+.title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-bottom: 10px;
+}
+
+.details {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.ratingText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--main);
+  margin-right: 16px;
+}
+.price {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-bottom: 28px;
+}
+.images {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 28px;
+}
+.image {
+  border-radius: 10px;
+  width: 292px;
+  height: 320px;
+}
+
+.description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 60px;
+}

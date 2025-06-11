@@ -1,4 +1,4 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchCamperById = createAsyncThunk(
   'camper/fetchById',
@@ -14,3 +14,35 @@ export const fetchCamperById = createAsyncThunk(
     }
   }
 );
+
+const camperByIdSlice = createSlice({
+  name: 'camperById',
+  initialState: {
+    camper: null,
+    loading: false,
+    error: null,
+  },
+  reducers: {
+    clearCamper: state => {
+      state.camper = null;
+    },
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchCamperById.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchCamperById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.camper = action.payload;
+      })
+      .addCase(fetchCamperById.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+  },
+});
+
+export const { clearCamper } = camperByIdSlice.actions;
+export default camperByIdSlice.reducer;

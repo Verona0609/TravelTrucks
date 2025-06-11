@@ -1,13 +1,13 @@
 import Header from '../components/Header/Header';
-/* import CatalogId from '../components/CatalogId/CatalogId'; */
+import CatalogId from '../components/CatalogId/CatalogId';
 
 const CatalogIdPage = () => {
   return (
     <>
       <Header />
-      {/* <div className="container">
-        <CatalogId camper={camper} />
-      </div> */}
+      <div className="container">
+        <CatalogId />
+      </div>
     </>
   );
 };

@@ -2,9 +2,30 @@ import { selectIsLoading } from '../../selectors/selectors';
 import { Icon } from '../Icon/Icon';
 import css from './CatalogId.module.css';
 
-const CatalogId = ({ camper }) => {
-  const isLoading = useSelector(selectIsLoading);
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { clearCamper, fetchCamperById } from '../../slices/camperIdSlice';
+import Loader from '../Loader/Loader';
+
+const CatalogId = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  const { camper, loading, error } = useSelector(state => state.camperById);
+
+  useEffect(() => {
+    dispatch(fetchCamperById(id));
+
+    return () => {
+      dispatch(clearCamper());
+    };
+  }, [dispatch, id]);
+
+  if (loading) return <Loader />;
+  if (error) return <p>Error: {error}</p>;
   if (!camper) return null;
+
   const {
     gallery = [],
     name = '',
@@ -13,43 +34,36 @@ const CatalogId = ({ camper }) => {
     reviews = [],
     location = '',
     description = '',
-    AC,
-    kitchen,
-    TV,
-    bathroom,
-    radio,
-    microwave,
-    refrigerator,
-    gas,
-    water,
   } = camper;
 
   return (
     <div className={css.camperList}>
-      {isLoading && <Loader />}
       <div className={css.card}>
-        <div className={css.image}>
-          <img src={gallery[0]?.original} alt={name} className={css.image} />
-        </div>
         <div className={css.about}>
           <div className={css.header}>
-            <h2 className={css.title}>{camper.name}</h2>
-            <div className={css.priceBox}>
-              <p className={css.price}>${camper.price}.00</p>
-            </div>
+            <h2 className={css.title}>{name}</h2>
           </div>
 
           <div className={css.details}>
             <Icon className={css.iconstar} id="icon-star" size={16} />
             <p className={css.ratingText}>
-              {camper.rating} ({camper.reviews?.length || 0} Reviews)
+              {rating} ({reviews?.length || 0} Reviews)
             </p>
 
             <Icon className={css.iconloc} id="icon-Map" size={16} />
-            <p className={css.location}>{camper.location}</p>
+            <p className={css.location}>{location}</p>
           </div>
-
-          <p className={css.description}>{camper.description}</p>
+          <div className={css.priceBox}>
+            <p className={css.price}>${price}.00</p>
+          </div>
+          <div className={css.images}>
+            <img src={gallery[0]?.original} alt={name} className={css.image} />
+            <img src={gallery[1]?.original} alt={name} className={css.image} />
+            <img src={gallery[2]?.original} alt={name} className={css.image} />
+          </div>
+          <div className={css.boxDescription}>
+            <p className={css.description}>{description}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -57,24 +71,3 @@ const CatalogId = ({ camper }) => {
 };
 
 export default CatalogId;
-
-/*
-  const optionsMap = {
-    AC: 'icon-wind',
-    automatic: 'icon-diagram',
-    kitchen: 'icon-cup-hot',
-    TV: 'icon-tv',
-    bathroom: 'icon-ph_shower',
-    petrol: 'icon-fuel-pump',
-    radio: 'icon-radios',
-    refrigerator: 'icon-fridge',
-    microwave: 'icon-microwave',
-    gas: 'icon-gas-stove',
-    water : 'icon-water',
-}
-  /*   const activeFilters = Object.entries(optionsMap)
-    .filter(([key]) => camper[key])
-    .map(([key, icon]) => ({
-      name: key,
-      icon,
-    })); */
