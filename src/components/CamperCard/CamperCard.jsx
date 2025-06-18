@@ -35,6 +35,7 @@ const CamperCard = ({ camper }) => {
     gas: 'icon-gas-stove',
     water: 'icon-water',
   };
+
   const activeFilters = Object.entries(optionsMap)
     .filter(([key]) => camper[key])
     .map(([key, icon]) => ({
@@ -71,7 +72,6 @@ const CamperCard = ({ camper }) => {
 
           <p className={css.description}>{description}</p>
 
-         
           {activeFilters.length > 0 && (
             <ul className={css.filterlist}>
               {activeFilters.map((filter, index) => (

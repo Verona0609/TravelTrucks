@@ -1,0 +1,75 @@
+.features {
+  margin-left: 24px;
+}
+
+.btn {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+
+  margin: 0 40px 24px 0;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--gray-light);
+  border: none;
+  width: 100%;
+  margin-bottom: 48px;
+}
+.box {
+  border-radius: 10px;
+  padding: 44px 52px;
+  width: 631px;
+  height: 588px;
+  background: var(--inputs);
+}
+
+.filterlist {
+  display: flex;
+  flex-wrap: wrap; /* дозволяє переносити на новий рядок */
+  gap: 8px 12px;
+  margin-bottom: 24px;
+  max-height: calc(44px * 2 + 8px); /* обмеження на 2 рядки */
+  overflow: hidden;
+  margin-bottom: 100px;
+}
+
+.filterItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  padding: 12px 18px;
+  font-size: 16px;
+  height: 44px;
+  gap: 8px;
+  background: var(--badges);
+  mix-blend-mode: multiply;
+}
+
+.details {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  margin-bottom: 48px;
+}
+
+.vehicleItem {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: var(--main);
+  margin-bottom: 16px;
+}
+
+.vehicleList {
+}

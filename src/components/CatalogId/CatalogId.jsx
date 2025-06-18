@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { clearCamper, fetchCamperById } from '../../slices/camperIdSlice';
 import Loader from '../Loader/Loader';
+import Features from '../Features/Features';
 
 const CatalogId = () => {
   const { id } = useParams();
@@ -66,6 +67,7 @@ const CatalogId = () => {
           </div>
         </div>
       </div>
+      <Features camper={camper} />
     </div>
   );
 };
