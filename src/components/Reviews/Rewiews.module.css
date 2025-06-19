@@ -1,0 +1,49 @@
+.box {
+  border-radius: 10px;
+  padding: 44px 52px;
+  width: 631px;
+  height: 588px;
+  border: 1px solid var(--gray-light);
+}
+
+.header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.name {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+  margin-left: 4px;
+}
+.rating {
+  margin-top: 4px;
+  display: block;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--inputs);
+  font-size: 30px;
+  color: var(--button-hover);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+}
+
+.item {
+  margin-bottom: 44px;
+}

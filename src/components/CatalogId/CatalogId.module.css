@@ -55,3 +55,40 @@
   color: var(--text);
   margin-bottom: 60px;
 }
+
+.btn {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+
+  margin: 0 40px 24px 0;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--gray-light);
+  border: none;
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.tabButton {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s;
+}
+
+.tabButton:hover {
+  color: #444;
+}
+
+.active {
+  color: var(--button-hover);
+  border-bottom: 2px solid #ffb400;
+}

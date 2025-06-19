@@ -2,23 +2,6 @@
   margin-left: 24px;
 }
 
-.btn {
-  font-family: var(--font-family);
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 120%;
-  color: var(--main);
-
-  margin: 0 40px 24px 0;
-}
-
-.divider {
-  height: 1px;
-  background-color: var(--gray-light);
-  border: none;
-  width: 100%;
-  margin-bottom: 48px;
-}
 .box {
   border-radius: 10px;
   padding: 44px 52px;

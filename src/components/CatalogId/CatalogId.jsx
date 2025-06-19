@@ -4,14 +4,16 @@ import css from './CatalogId.module.css';
 
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { clearCamper, fetchCamperById } from '../../slices/camperIdSlice';
 import Loader from '../Loader/Loader';
 import Features from '../Features/Features';
+import Reviews from '../Reviews/Reviews';
 
 const CatalogId = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [activeTab, setActiveTab] = useState('features');
 
   const { camper, loading, error } = useSelector(state => state.camperById);
 
@@ -67,7 +69,23 @@ const CatalogId = () => {
           </div>
         </div>
       </div>
-      <Features camper={camper} />
+      <div>
+        <button
+          className={`${css.btn} ${activeTab === 'features' ? css.active : ''}`}
+          onClick={() => setActiveTab('features')}
+        >
+          Features
+        </button>
+        <button
+          className={`${css.btn} ${activeTab === 'reviews' ? css.active : ''}`}
+          onClick={() => setActiveTab('reviews')}
+        >
+          Reviews
+        </button>
+        <hr className={css.divider} />
+      </div>
+      {activeTab === 'features' && <Features camper={camper} />}
+      {activeTab === 'reviews' && <Reviews camper={camper} />}
     </div>
   );
 };

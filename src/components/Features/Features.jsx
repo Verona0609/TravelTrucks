@@ -34,16 +34,6 @@ const Features = ({ camper }) => {
   ];
   return (
     <div className={css.features}>
-      <div>
-        <button className={css.btn}>Features</button>
-        <button className={css.btn}>Reviews</button>
-        <hr className={css.divider} />
-        {/* <Icon
-          className={css.iconLine}
-          id="icon-line-big"
-          preserveAspectRatio="none"
-        /> */}
-      </div>
       <div className={css.box}>
         {activeFilters.length > 0 && (
           <ul className={css.filterlist}>
