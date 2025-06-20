@@ -69,23 +69,29 @@ const CatalogId = () => {
           </div>
         </div>
       </div>
-      <div>
-        <button
-          className={`${css.btn} ${activeTab === 'features' ? css.active : ''}`}
-          onClick={() => setActiveTab('features')}
-        >
-          Features
-        </button>
-        <button
-          className={`${css.btn} ${activeTab === 'reviews' ? css.active : ''}`}
-          onClick={() => setActiveTab('reviews')}
-        >
-          Reviews
-        </button>
-        <hr className={css.divider} />
+      <div className={css.features}>
+        <div>
+          <button
+            className={`${css.btn} ${
+              activeTab === 'features' ? css.active : ''
+            }`}
+            onClick={() => setActiveTab('features')}
+          >
+            Features
+          </button>
+          <button
+            className={`${css.btn} ${
+              activeTab === 'reviews' ? css.active : ''
+            }`}
+            onClick={() => setActiveTab('reviews')}
+          >
+            Reviews
+          </button>
+          <hr className={css.divider} />
+        </div>
+        {activeTab === 'features' && <Features camper={camper} />}
+        {activeTab === 'reviews' && <Reviews camper={camper} />}
       </div>
-      {activeTab === 'features' && <Features camper={camper} />}
-      {activeTab === 'reviews' && <Reviews camper={camper} />}
     </div>
   );
 };

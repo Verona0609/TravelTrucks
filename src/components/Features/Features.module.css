@@ -1,13 +1,17 @@
-.features {
-  margin-left: 24px;
-}
-
 .box {
   border-radius: 10px;
   padding: 44px 52px;
   width: 631px;
   height: 588px;
   background: var(--inputs);
+  border: 1px solid var(--gray-light);
+}
+.divider {
+  height: 1px;
+  background-color: var(--gray-light);
+  border: none;
+  width: 100%;
+  margin-bottom: 24px;
 }
 
 .filterlist {
@@ -31,6 +35,7 @@
   gap: 8px;
   background: var(--badges);
   mix-blend-mode: multiply;
+  border: 1px solid var(--gray-light);
 }
 
 .details {
@@ -39,7 +44,7 @@
   font-size: 20px;
   line-height: 120%;
   color: var(--main);
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 
 .vehicleItem {
@@ -52,7 +57,4 @@
   text-align: center;
   color: var(--main);
   margin-bottom: 16px;
-}
-
-.vehicleList {
 }

@@ -33,34 +33,33 @@ const Features = ({ camper }) => {
     { label: 'Consumption', value: camper.consumption },
   ];
   return (
-    <div className={css.features}>
-      <div className={css.box}>
-        {activeFilters.length > 0 && (
-          <ul className={css.filterlist}>
-            {activeFilters.map((filter, index) => (
-              <li key={index} className={css.filterItem}>
-                <Icon
-                  className={css.iconId}
-                  id={filter.icon}
-                  size={20}
-                  style={{ color: '#100' }}
-                />
-                <p>{filter.name}</p>
-              </li>
-            ))}
-          </ul>
-        )}
-        <div>
-          <h3 className={css.details}>Vehicle details</h3>
-          <ul className={css.vehicleList}>
-            {vehicleDetails.map((item, index) => (
-              <li key={index} className={css.vehicleItem}>
-                <span className={css.vehicleLabel}>{item.label}:</span>
-                <span className={css.vehicleLabel}>{item.value}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <div className={css.box}>
+      {activeFilters.length > 0 && (
+        <ul className={css.filterlist}>
+          {activeFilters.map((filter, index) => (
+            <li key={index} className={css.filterItem}>
+              <Icon
+                className={css.iconId}
+                id={filter.icon}
+                size={20}
+                style={{ color: '#100' }}
+              />
+              <p>{filter.name}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+      <div>
+        <h3 className={css.details}>Vehicle details</h3>
+        <hr className={css.divider} />
+        <ul className={css.vehicleList}>
+          {vehicleDetails.map((item, index) => (
+            <li key={index} className={css.vehicleItem}>
+              <span className={css.vehicleLabel}>{item.label}:</span>
+              <span className={css.vehicleLabel}>{item.value}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

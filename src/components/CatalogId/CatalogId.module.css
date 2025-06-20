@@ -66,6 +66,10 @@
   margin: 0 40px 24px 0;
 }
 
+.features {
+  margin-left: 24px;
+}
+
 .divider {
   height: 1px;
   background-color: var(--gray-light);
