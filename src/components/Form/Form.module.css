@@ -1,0 +1,69 @@
+.box{
+    border: 1px solid var(--gray-light);
+border-radius: 10px;
+padding: 44px;
+width: 641px;
+height: 588px;
+}
+
+.name{
+ 
+font-weight: 600;
+font-size: 20px;
+line-height: 120%;
+color: var(--main);
+margin-bottom: 8px;
+}
+
+.text{
+   
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+color: var(--gray);
+margin-bottom: 24px;
+}
+
+.input{
+    border-radius: 12px;
+padding: 18px 337px 18px 18px;
+width: 527px;
+height: 60px;
+background: var(--inputs);
+font-weight: 400;
+font-size: 16px;
+color: var(--gray);
+margin-bottom: 14px;
+}
+.textarea{
+    border:none;
+    resize: none;
+    border-radius: 10px;
+padding: 18px 308px 76px 18px;
+width: 527px;
+height: 118px;
+background: var(--inputs);
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+color: var(--gray);
+margin-bottom: 24px;
+}
+.textarea:focus,input:focus{
+    outline: none;
+}
+
+.btn{
+    border-radius: 200px;
+padding: 16px 60px;
+width: 166px;
+height: 56px;
+background: var(--button);
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: -0.01em;
+color: var(--white);
+display:block;
+margin: 0 auto;
+}

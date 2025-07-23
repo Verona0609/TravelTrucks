@@ -96,3 +96,8 @@
   color: var(--button-hover);
   border-bottom: 2px solid #ffb400;
 }
+
+.flexBox{
+  display: flex;
+  gap:40px;
+}

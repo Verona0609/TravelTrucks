@@ -9,6 +9,7 @@ import { clearCamper, fetchCamperById } from '../../slices/camperIdSlice';
 import Loader from '../Loader/Loader';
 import Features from '../Features/Features';
 import Reviews from '../Reviews/Reviews';
+import Form from '../Form/Form';
 
 const CatalogId = () => {
   const { id } = useParams();
@@ -89,8 +90,13 @@ const CatalogId = () => {
           </button>
           <hr className={css.divider} />
         </div>
+<div className={css.flexBox}>
         {activeTab === 'features' && <Features camper={camper} />}
         {activeTab === 'reviews' && <Reviews camper={camper} />}
+        
+        <Form/>
+       
+</div>
       </div>
     </div>
   );
