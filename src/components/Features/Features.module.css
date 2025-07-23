@@ -4,7 +4,7 @@
   width: 631px;
   height: 588px;
   background: var(--inputs);
-  border: 1px solid var(--gray-light);
+/*   border: 1px solid var(--gray-light); */
 }
 .divider {
   height: 1px;
@@ -16,10 +16,10 @@
 
 .filterlist {
   display: flex;
-  flex-wrap: wrap; /* дозволяє переносити на новий рядок */
+  flex-wrap: wrap; 
   gap: 8px 12px;
   margin-bottom: 24px;
-  max-height: calc(44px * 2 + 8px); /* обмеження на 2 рядки */
+  max-height: calc(44px * 2 + 8px); 
   overflow: hidden;
   margin-bottom: 100px;
 }
@@ -35,7 +35,7 @@
   gap: 8px;
   background: var(--badges);
   mix-blend-mode: multiply;
-  border: 1px solid var(--gray-light);
+  /* border: 1px solid var(--gray-light); */
 }
 
 .details {
