@@ -7,7 +7,7 @@ height: 588px;
 }
 
 .name{
- 
+
 font-weight: 600;
 font-size: 20px;
 line-height: 120%;
@@ -16,7 +16,7 @@ margin-bottom: 8px;
 }
 
 .text{
-   
+
 font-weight: 400;
 font-size: 16px;
 line-height: 150%;
@@ -66,4 +66,10 @@ letter-spacing: -0.01em;
 color: var(--white);
 display:block;
 margin: 0 auto;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background-color: var(--button-hover);
 }
